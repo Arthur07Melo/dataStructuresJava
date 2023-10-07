@@ -12,7 +12,7 @@ public class Test0_ListaEncadeada {
 		
 	@Before //Instanciando a Lista antes de cada teste
 	public void instanciaLista(){
-		//list = new ListaEncadeada();
+		list = new ListaEncadeada();
 	}
 	
 
@@ -67,12 +67,14 @@ public class Test0_ListaEncadeada {
 
 	@Test (expected = Exception.class)
 	public void testSearchException() throws Exception{
+		//TestCase: Search não encontra elemento
 		list.search(777);
 	}
 
 
 	@Test
 	public void testInsert(){
+		//TestCase: Elementos inseridos com sucesso
 		list.insert(5);
 		list.insert(4);
 		//Fiquei em dúvida se podia usar list.data e list.next, já que ambos eram atributos não definidos na interface
@@ -84,6 +86,12 @@ public class Test0_ListaEncadeada {
 
 	@Test
 	public void testToArray(){
+		//TestCase: toArray de lista vazia
+		int[] arrayVoid = list.toArray();
+		int[] expectedVoid = new int[0];
+		assertArrayEquals(expectedVoid, arrayVoid);
+
+		//TestCase: toArray de lista com alguns elementos
 		list.insert(5);
 		list.insert(4);
 		int[] array = list.toArray();
