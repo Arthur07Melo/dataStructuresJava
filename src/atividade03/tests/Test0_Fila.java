@@ -14,7 +14,7 @@ public class Test0_Fila {
 		
 	@Before //Instanciando a Fila antes de cada teste
 	public void instanciaFila() throws Exception{
-		//fila = new FilaComPilhas();
+		fila = new FilaComPilhas();
 	}
 	
 	@Test
