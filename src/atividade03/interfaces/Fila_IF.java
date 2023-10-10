@@ -1,4 +1,4 @@
-package atividade03;
+package atividade03.interfaces;
 
 /*
  * Interface para implementação da classe "FilaComPilhas", a qual deve

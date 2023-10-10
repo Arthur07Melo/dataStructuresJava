@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import atividade03.ListaEncadeada;
-import atividade03.ListaEncadeada_IF;
+import atividade03.*;
+import atividade03.interfaces.ListaEncadeada_IF;
 
 public class Test0_ListaEncadeada {
 	

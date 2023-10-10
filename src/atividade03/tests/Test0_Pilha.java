@@ -3,11 +3,10 @@ package atividade03.tests;
 import org.junit.Before;
 import org.junit.Test;
 
-import atividade03.Pilha_IF;
+import atividade03.*;
+import atividade03.interfaces.Pilha_IF;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 
 public class Test0_Pilha {
 

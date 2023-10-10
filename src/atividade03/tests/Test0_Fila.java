@@ -3,7 +3,8 @@ package atividade03.tests;
 import org.junit.Before;
 import org.junit.Test;
 
-import atividade03.Fila_IF;
+import atividade03.*;
+import atividade03.interfaces.Fila_IF;
 
 import static org.junit.Assert.*;
 

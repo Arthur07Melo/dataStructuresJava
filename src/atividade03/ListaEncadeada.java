@@ -1,5 +1,5 @@
 package atividade03;
-
+import atividade03.interfaces.ListaEncadeada_IF;
 
 public class ListaEncadeada implements ListaEncadeada_IF {
     
