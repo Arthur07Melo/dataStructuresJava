@@ -1,18 +1,51 @@
-## Getting Started
+# Estrutura de Dados
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Dependências
 
-## Folder Structure
+- [Junit](https://junit.org/junit5/)
+    - Caso deseje utilizar os [testes](src/atividade03/tests/)
+- [Java](https://www.java.com/pt-BR/)
+    - JDK
+    - JVM
 
-The workspace contains two folders by default, where:
+## Estruturas implementadas
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### [Lista Encadeada](src/atividade03/ListaEncadeada.java)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Implementa interface [ListaEncadeada_IF](src/atividade03/interfaces/ListaEncadeada_IF.java). Trata-se de uma lista encadeada convencional utilizando métodos recursivos:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- `isEmpty()`:        boolean
+- `size()`:           int
+- `search(Integer)`:  int
+- `insert(Integer)`:  void
+- `remove(Integer)`:  void
+- `toArray()`:        int[]
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### [Pilha Com Lista](src/atividade03/PilhaComLista.java)
+
+implementa interface [Pilha_IF](src/atividade03/interfaces/Pilha_IF.java). Trata-se de uma pilha feita utilizando a [Lista Encadeada](#lista-encadeada) como base. Tem-se os seguintes métodos:
+
+- `push(Integer)`:  void
+- `pop()`:          int
+- `top()`:          int
+- `isEmpty()`:      boolean
+- `isFull()`:       boolean
+
+### [Fila Com Pilhas](src/atividade03/FilaComPilhas.java)
+
+Implementa interface [Fila_IF](src/atividade03/interfaces/Fila_IF.java). Trata-se de uma fila feita utilizando duas [Pilha Com Lista](#pilha-com-lista), onde o custo do método dequeue() é O(1). Métodos implementados:
+
+- `enqueue(Integer)`:   void
+- `dequeue()`:          int
+- `head()`:             int
+- `isEmpty()`:          boolean
+- `isFull()`:           boolean
+
+
+## Colaboradores
+
+- [Arthur Ian](https://github.com/Arthur07Melo)
+- [José Matheus](https://github.com/JoseMatheusR) 
+- [Júlio César](https://github.com/juliocesar710) 
+- [Sávio Sayke](https://github.com/SavioSayke)
