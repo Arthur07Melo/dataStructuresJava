@@ -4,7 +4,15 @@ import atividade03.interfaces.ListaEncadeada_IF;
 public class ListaEncadeada implements ListaEncadeada_IF {
     
     private Integer data;
-    private ListaEncadeada next;
+    public Integer getData() {
+		return data;
+	}
+
+	public ListaEncadeada getNext() {
+		return next;
+	}
+
+	private ListaEncadeada next;
 
     public ListaEncadeada(){
         this.data = null;
