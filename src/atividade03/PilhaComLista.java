@@ -15,7 +15,10 @@ public class PilhaComLista implements Pilha_IF {
     }
     
     
-    public void push(Integer element) {
+    public void push(Integer element) throws Exception {
+		if(this.tamanho == 10){
+			throw new Exception("Stack Overflow!! Tamanho máximo da pilha é 10");
+		}
     	lista.insert(element);  
     	this.topo = element;
     	this.tamanho++;

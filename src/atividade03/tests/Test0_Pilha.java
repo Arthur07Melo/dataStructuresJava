@@ -48,7 +48,7 @@ public class Test0_Pilha {
 		pilha.push(5);
 		pilha.push(3);
 		pilha.pop();
-		assertEquals(3, pilha.top());
+		assertEquals(5, pilha.top());
 	}
 
 	@Test (expected = Exception.class)
