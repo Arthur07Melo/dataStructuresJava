@@ -28,8 +28,8 @@ public class Test0_TabelaHash {
 
     @Test
     public void testInsertSearch() throws Exception{
-        assertEquals(8, hashTable.search(8));
-        assertEquals(0, hashTable.search(0));
+        assertEquals(8, hashTable.search(8).intValue());
+        assertEquals(0, hashTable.search(0).intValue());
 
     }
 

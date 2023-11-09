@@ -23,7 +23,7 @@ public class Test0_BST {
         bst.insert(2);
         bst.insert(7);
         bst.insert(3);
-        assertEquals(3, bst.search(3));
+        assertEquals(3, bst.search(3).intValue());
     }
 
     @Test (expected = Exception.class)
