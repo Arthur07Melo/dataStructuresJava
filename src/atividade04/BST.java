@@ -28,7 +28,7 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int search(int element) throws Exception {
+    public Integer search(int element) throws Exception {
         return auxSearch(this, element);
     }
     private int auxSearch(BST tree, int element) throws Exception {

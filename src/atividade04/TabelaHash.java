@@ -21,7 +21,7 @@ public class TabelaHash implements TabelaHash_IF {
     }
 
     @Override
-    public int search(int element) throws Exception {
+    public Integer search(int element) throws Exception {
         // Te vira pra implementar champ
         throw new UnsupportedOperationException("Unimplemented method 'search'");
     }
