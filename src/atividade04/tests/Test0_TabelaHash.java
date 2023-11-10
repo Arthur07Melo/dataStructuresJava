@@ -15,16 +15,13 @@ public class Test0_TabelaHash {
     @Before
     public void setupHashTable(){
         hashTable = new TabelaHash(8);
-        
-    }
-
-    @Before
-    public void setupNumberInTable(){
         hashTable.insert(5);
         hashTable.insert(8);
         hashTable.insert(0);
         hashTable.insert(7);
+        
     }
+
 
     @Test
     public void testInsertSearch() throws Exception{
@@ -77,7 +74,7 @@ public class Test0_TabelaHash {
 
         String tablePrinted = hashTable.print();
         String expected = 
-            "0: 0, 8\n1: \n2: \n3: 3\n4: 4\n5: 5, 5\n6: \n7: 7";
+            "0: 8, 0\n1: \n2: \n3: 3\n4: 4\n5: 5, 5\n6: \n7: 7\n";
 
         assertEquals(expected, tablePrinted);
     }
