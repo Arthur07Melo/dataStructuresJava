@@ -79,7 +79,7 @@ public class BST implements BST_IF {
 
     @Override
     public boolean isComplete() {
-        if(this.size() == 0 || this.size() == 1) return true;
+        if(this.size() == 1) return true;
         else if(size(this.left) == size(this.right)) return true;
         return false;
     }
