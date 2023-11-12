@@ -3,9 +3,9 @@ package atividade04;
 import atividade04.interfaces.BST_IF;
 
 public class BST implements BST_IF {
-    private Integer data;
-    private BST left;
-    private BST right;
+    protected Integer data;
+    protected BST left;
+    protected BST right;
 
     public BST(){
         this.data = null;
@@ -84,10 +84,11 @@ public class BST implements BST_IF {
         return false;
     }
 
-    private int size(){
+    protected int size(){
         return size(this);
     }
-    private int size(BST tree){
+
+    protected int size(BST tree){
         if(tree.data == null) return 0;
         return 1 + size(tree.left) + size(tree.right);
     }
