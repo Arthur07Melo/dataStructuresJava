@@ -15,7 +15,7 @@ public class AVL extends BST {
     @Override
     public void insert(int element) {
         auxInsertAVL(this, element);
-        
+        updateHeight(this);
     }
 
     private void auxInsertAVL(AVL tree, int element){
@@ -30,7 +30,6 @@ public class AVL extends BST {
         else auxInsertAVL(tree.left, element);
         updateHeight(this);
         balance(this);
-        updateHeight(this);
     }
 
     private void updateHeight(AVL tree) {
