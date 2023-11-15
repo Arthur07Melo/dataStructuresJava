@@ -77,10 +77,26 @@ public class BST implements BST_IF {
         result[i + size(tree.left) + size(tree.right)] = tree.data;
     }
 
-    @Override
+    /* @Override
     public boolean isComplete() {
         if(this.size() == 1) return true;
         else if(size(this.left) == size(this.right)) return true;
+        return false;
+    } */
+
+    @Override
+    public boolean isComplete() {
+        int size = this.size();
+        if(size == 0) return false;
+        else if(size == 1) return true;
+        else if(this.left.size() != this.right.size()) return false;
+        return auxIsComplete(this);
+    }
+    private boolean auxIsComplete(BST tree){
+        if(tree.left.data != null && tree.right.data != null){
+            return auxIsComplete(tree.left) && auxIsComplete(tree.right);
+        }
+        else if(tree.left.data == null && tree.right.data == null) return true;
         return false;
     }
 

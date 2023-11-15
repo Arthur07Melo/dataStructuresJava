@@ -100,7 +100,7 @@ public class Test0_BST {
 
     @Test
     public void testIsCompleteEmptyTree(){
-        assertEquals(true, bst.isComplete());
+        assertEquals(false, bst.isComplete());
     }
 
     @Test

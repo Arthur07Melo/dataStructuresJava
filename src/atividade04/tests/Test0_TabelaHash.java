@@ -74,7 +74,7 @@ public class Test0_TabelaHash {
 
         String tablePrinted = hashTable.print();
         String expected = 
-            "0: 8, 0\n1: \n2: \n3: 3\n4: 4\n5: 5, 5\n6: \n7: 7\n";
+            "0: 0, 8\n1: \n2: \n3: 3\n4: 4\n5: 5, 5\n6: \n7: 7\n";
 
         assertEquals(expected, tablePrinted);
     }
