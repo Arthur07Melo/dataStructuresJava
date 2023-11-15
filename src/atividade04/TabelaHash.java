@@ -6,7 +6,7 @@ import atividade04.interfaces.TabelaHash_IF;
 
 public class TabelaHash implements TabelaHash_IF {
     private LinkedList<Integer>[] table;
-    private int size;
+    protected int size;
 
     public TabelaHash(int capacity){
         //te vira campeão, criei essa mímica (mock) de tabelaHash pra fazer os testes :)
@@ -22,7 +22,7 @@ public class TabelaHash implements TabelaHash_IF {
             table[key] = new LinkedList<>();
         }
 
-        table[key].add(element);
+        table[key].addFirst(element);
         size++;
     }
 
