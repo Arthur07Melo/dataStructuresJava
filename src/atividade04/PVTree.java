@@ -1,18 +1,16 @@
 package atividade04;
 
-public class PV1 extends BST {
+public class PVTree extends BST {
 
-    private static final boolean RED = false;
-    private static final boolean BLACK = true;
 
-    private boolean color;
-    private PV1 parent;
-    private PV1 left;
-    private PV1 right;
+    private boolean isblack;
+    private PVTree parent;
+    private PVTree left;
+    private PVTree right;
 
-    public PV1() {
+    public PVTree() {
         super();
-        this.color = BLACK;
+        this.isblack = true;
         this.parent = null;
         this.left = null;
         this.right = null;
@@ -20,20 +18,20 @@ public class PV1 extends BST {
 
     @Override
     public void insert(int element) {
-        PV1 newNode = new PV1();
+        PVTree newNode = new PVTree();
         newNode.data = element;
-        newNode.color = RED;
+        newNode.isblack = false;
 
         auxInsert(this, newNode);
 
         fixInsertion(newNode);
     }
 
-    private void auxInsert(PV1 tree, PV1 newNode) {
+    private void auxInsert(PVTree tree, PVTree newNode) {
         if (tree.data == null) {
             tree.data = newNode.data;
-            tree.left = new PV1();
-            tree.right = new PV1();
+            tree.left = new PVTree();
+            tree.right = new PVTree();
             newNode.parent = tree;
         } else if (newNode.data > tree.data) {
             auxInsert(tree.right, newNode);
@@ -42,51 +40,62 @@ public class PV1 extends BST {
         }
     }
 
-    private void fixInsertion(PV1 node) {
-        while (node != null && node.parent != null && node.parent.color == RED) {
-            if (node.parent == node.parent.parent.left) {
-                PV1 uncle = node.parent.parent.right;
-
-                if (uncle != null && uncle.color == RED) {
-                    node.parent.color = BLACK;
-                    uncle.color = BLACK;
-                    node.parent.parent.color = RED;
-                    node = node.parent.parent;
-                } else {
-                    if (node == node.parent.right) {
-                        node = node.parent;
-                        rotateLeft(node);
-                    }
-
-                    node.parent.color = BLACK;
-                    node.parent.parent.color = RED;
-                    rotateRight(node.parent.parent);
-                }
-            } else {
-                PV1 uncle = node.parent.parent.left;
-
-                if (uncle != null && uncle.color == RED) {
-                    node.parent.color = BLACK;
-                    uncle.color = BLACK;
-                    node.parent.parent.color = RED;
-                    node = node.parent.parent;
-                } else {
-                    if (node == node.parent.left) {
-                        node = node.parent;
-                        rotateRight(node);
-                    }
-
-                    node.parent.color = BLACK;
-                    node.parent.parent.color = RED;
-                    rotateLeft(node.parent.parent);
-                }
-            }
-        }
-        this.color = BLACK;
+    private void fixInsertion(PVTree node) {
+        fixInsertionRecursive(node);
+        this.isblack = true; 
     }
 
-    private void rotateLeft(PV1 node) {
-        PV1 rightChild = node.right;
+    private void fixInsertionRecursive(PVTree node) {
+    if (node == null || node.parent == null || node.parent.isblack != false) {
+        this.isblack = true;
+        return;
+    }
+
+    if (node.parent == node.parent.parent.left) {
+        PVTree uncle = node.parent.parent.right;
+
+        if (uncle != null && uncle.isblack == false) {
+            // Caso 1: O tio é vermelho.
+            node.parent.isblack = true;
+            uncle.isblack = true;
+            node.parent.parent.isblack = false;
+            fixInsertionRecursive(node.parent.parent);
+        } else {
+            // Caso 2: O tio é preto.
+            if (node == node.parent.right) {
+                node = node.parent;
+                rotateLeft(node);
+            }
+
+            node.parent.isblack = true;
+            node.parent.parent.isblack = false;
+            rotateRight(node.parent.parent);
+        }
+    } else {
+        PVTree uncle = node.parent.parent.left;
+
+        if (uncle != null && uncle.isblack == false) {
+            // Caso 1: O tio é vermelho.
+            node.parent.isblack = true;
+            uncle.isblack = true;
+            node.parent.parent.isblack = false;
+            fixInsertionRecursive(node.parent.parent);
+        } else {
+            // Caso 2: O tio é preto.
+            if (node == node.parent.left) {
+                node = node.parent;
+                rotateRight(node);
+            }
+
+            node.parent.isblack = true;
+            node.parent.parent.isblack = false;
+            rotateLeft(node.parent.parent);
+        }
+    }
+}
+
+    private void rotateLeft(PVTree node) {
+        PVTree rightChild = node.right;
         node.right = rightChild.left;
 
         if (rightChild.left != null) {
@@ -107,8 +116,8 @@ public class PV1 extends BST {
         node.parent = rightChild;
     }
 
-    private void rotateRight(PV1 node) {
-        PV1 leftChild = node.left;
+    private void rotateRight(PVTree node) {
+        PVTree leftChild = node.left;
         node.left = leftChild.right;
 
         if (leftChild.right != null) {
